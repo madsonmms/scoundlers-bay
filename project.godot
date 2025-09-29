@@ -19,9 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=470
 window/size/viewport_height=280
-window/size/window_width_override=1980
+window/size/window_width_override=1080
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -50,5 +51,4 @@ right={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true
+anti_aliasing/screen_space_roughness_limiter/enabled=false

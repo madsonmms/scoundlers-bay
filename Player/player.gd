@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 
 func _physics_process(_delta: float) -> void:
+	
 	#controla o movimento
 	input_dir = Input.get_vector("left","right","up","down")
 	velocity = input_dir * stats.move_speed
