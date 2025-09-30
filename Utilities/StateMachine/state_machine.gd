@@ -1,4 +1,5 @@
 extends Node
+class_name StateMachine
 
 @export var initial_state : State
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 		current_state = initial_state
 		
 func _process(delta: float) -> void:
+	print_debug(current_state)
 	if current_state:
 		current_state.Update(delta)
 	pass
@@ -27,17 +29,21 @@ func _physics_process(delta: float) -> void:
 		current_state.Physics_Update(delta)
 		
 func on_child_transition(state, new_state_name) -> void:
+	
+	#Para garantir que o estado que chamou é o atual
 	if state != current_state:
 		return 
 	
+	#Pega o nome do novo estado e garante que ele existe
 	var new_state = states.get(new_state_name.to_lower())
 	if !new_state:
 		return
 	
+	#Sai do estado atual e entra no novo
 	if current_state:
 		current_state.Exit()
 		
 	new_state.Enter()
 	
 	current_state = new_state
-		
+	

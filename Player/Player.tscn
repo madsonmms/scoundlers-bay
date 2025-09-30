@@ -1,9 +1,12 @@
-[gd_scene load_steps=30 format=3 uid="uid://xqr84o0smgvt"]
+[gd_scene load_steps=33 format=3 uid="uid://xqr84o0smgvt"]
 
 [ext_resource type="Texture2D" uid="uid://rs5hvtmvw6wh" path="res://Player/Sprites/main-character_sword_animation_v04.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://b0hcrq3ddrj8s" path="res://Player/player.gd" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://bsoh08d1la2e2" path="res://Utilities/Handlers/stats_handlers.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://pamj788xop17" path="res://Utilities/Handlers/animation_handler.gd" id="4_ddoul"]
+[ext_resource type="Script" uid="uid://bo5g3icxdxyig" path="res://Utilities/StateMachine/state_machine.gd" id="5_8g4oa"]
+[ext_resource type="Script" uid="uid://cgt4hbdt54m3q" path="res://Utilities/StateMachine/States/idle.gd" id="6_vlldt"]
+[ext_resource type="Script" uid="uid://cnicskdfb362" path="res://Utilities/StateMachine/States/walk.gd" id="7_s1rgi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ntmi"]
 radius = 8.0
@@ -264,3 +267,16 @@ metadata/_custom_type_script = "uid://bsoh08d1la2e2"
 [node name="AnimationHandler" type="Node" parent="."]
 script = ExtResource("4_ddoul")
 metadata/_custom_type_script = "uid://pamj788xop17"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_8g4oa")
+initial_state = NodePath("IdleState")
+metadata/_custom_type_script = "uid://bo5g3icxdxyig"
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("6_vlldt")
+metadata/_custom_type_script = "uid://cgt4hbdt54m3q"
+
+[node name="WalkState" type="Node" parent="StateMachine"]
+script = ExtResource("7_s1rgi")
+metadata/_custom_type_script = "uid://cnicskdfb362"
