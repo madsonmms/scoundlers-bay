@@ -10,3 +10,6 @@ func Physics_Update(_delta):
 	if player.input_dir == Vector2.ZERO:
 		print_debug("transitioned")
 		Transitioned.emit(self, "IdleState")
+		
+	if player.attacking == true:
+		Transitioned.emit(self, "AttackState")

@@ -19,7 +19,6 @@ func _ready() -> void:
 		current_state = initial_state
 		
 func _process(delta: float) -> void:
-	print_debug(current_state)
 	if current_state:
 		current_state.Update(delta)
 	pass

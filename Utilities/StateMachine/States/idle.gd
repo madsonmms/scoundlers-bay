@@ -9,3 +9,6 @@ func Enter():
 func Physics_Update(_delta):
 	if player.input_dir != Vector2.ZERO:
 		Transitioned.emit(self, "WalkState")
+	
+	if player.attacking == true:
+		Transitioned.emit(self, "AttackState")
