@@ -1,6 +1,5 @@
-[gd_scene load_steps=44 format=3 uid="uid://xqr84o0smgvt"]
+[gd_scene load_steps=60 format=4 uid="uid://xqr84o0smgvt"]
 
-[ext_resource type="Texture2D" uid="uid://rs5hvtmvw6wh" path="res://Player/Sprites/main-character_sword_animation_v04.png" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://b0hcrq3ddrj8s" path="res://Player/player.gd" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://bsoh08d1la2e2" path="res://Utilities/Handlers/stats_handlers.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://pamj788xop17" path="res://Utilities/Handlers/animation_handler.gd" id="4_ddoul"]
@@ -9,33 +8,112 @@
 [ext_resource type="Script" uid="uid://cnicskdfb362" path="res://Utilities/StateMachine/States/walk.gd" id="7_s1rgi"]
 [ext_resource type="Script" uid="uid://cs0cu4cdocf1f" path="res://Utilities/StateMachine/States/attack.gd" id="8_s1rgi"]
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_vlldt"]
+_data = PackedByteArray("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")
+size_override = Vector2(378, 336)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ntmi"]
 radius = 8.0
 
-[sub_resource type="Animation" id="Animation_4ntmi"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_croik"]
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [52, 53, 54, 55]
 }
 
-[sub_resource type="Animation" id="Animation_vlldt"]
-resource_name = "idle_down"
+[sub_resource type="Animation" id="Animation_u5tep"]
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.7, 0.8, 0.9, 1, 1.4, 1.5, 1.6, 1.7, 2.1, 2.2, 2.3, 2.4, 2.8, 2.9, 3, 3.1, 3.5, 3.6, 3.7, 3.8, 4.2, 4.3, 4.4, 4.5, 4.9, 5, 5.1, 5.2, 5.6, 5.7, 5.8, 5.9, 6.3, 6.4, 6.5, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Animation_s0mko"]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 41, 42, 43]
+}
+
+[sub_resource type="Animation" id="Animation_78fhc"]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [64, 65, 66, 67]
+}
+
+[sub_resource type="Animation" id="Animation_x70vp"]
+length = 0.325
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [44, 45, 46, 47]
+}
+
+[sub_resource type="Animation" id="Animation_wo5nf"]
+length = 0.325
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51]
+}
+
+[sub_resource type="Animation" id="Animation_v0k0e"]
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -43,15 +121,14 @@ tracks/0/keys = {
 "values": [2]
 }
 
-[sub_resource type="Animation" id="Animation_ddoul"]
-resource_name = "idle_left"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_j23h2"]
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -59,31 +136,15 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_8g4oa"]
-resource_name = "idle_right"
+[sub_resource type="Animation" id="Animation_5wa8t"]
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_6ysni"]
-resource_name = "idle_up"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -91,8 +152,131 @@ tracks/0/keys = {
 "values": [3]
 }
 
-[sub_resource type="Animation" id="Animation_gwnis"]
-resource_name = "walk_down"
+[sub_resource type="Animation" id="Animation_dm7nj"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_p7tob"]
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_evw08"]
+length = 0.325
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_roy6y"]
+length = 0.325
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_7uipr"]
+length = 0.325
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_yifbt"]
+length = 0.325
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_gv3fu"]
+length = 0.325
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59]
+}
+
+[sub_resource type="Animation" id="Animation_xu7fl"]
+length = 0.325
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [60, 61, 62, 63]
+}
+
+[sub_resource type="Animation" id="Animation_8sa4y"]
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -100,16 +284,15 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 15]
+"values": [2, 13, 14, 15]
 }
 
-[sub_resource type="Animation" id="Animation_l8h54"]
-resource_name = "walk_left"
+[sub_resource type="Animation" id="Animation_3mea3"]
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -117,16 +300,15 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [0, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_tok1r"]
-resource_name = "walk_right"
+[sub_resource type="Animation" id="Animation_3nb2p"]
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -134,7 +316,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
@@ -142,8 +324,7 @@ tracks/0/keys = {
 "values": [16, 17, 18, 19]
 }
 
-[sub_resource type="Animation" id="Animation_btcbx"]
-resource_name = "walk_up"
+[sub_resource type="Animation" id="Animation_7v5gs"]
 length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
@@ -151,56 +332,133 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11]
+"values": [9, 10, 11, 12]
 }
 
 [sub_resource type="Animation" id="Animation_s1rgi"]
-resource_name = "attack_left"
-length = 0.4
+length = 1.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.325, 0.4, 0.475, 0.55, 0.65, 0.75, 0.85, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+}
+
+[sub_resource type="Animation" id="Animation_d7xyo"]
+length = 1.35
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.325, 0.4, 0.475, 0.55, 0.65, 0.75, 0.85, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [21, 22, 23, 24]
+"values": [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_btcbx"]
+[sub_resource type="Animation" id="Animation_ps8ct"]
+length = 14.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.325, 0.4, 0.475, 0.55, 0.65, 0.75, 0.85, 1.05, 1.45, 1.525, 1.6, 1.675, 1.775, 1.85, 1.925, 2, 2.1, 2.2, 2.3, 2.5, 2.9, 2.975, 3.05, 3.125, 3.225, 3.3, 3.375, 3.45, 3.55, 3.65, 3.75, 3.95, 4.35, 4.425, 4.5, 4.575, 4.675, 4.75, 4.825, 4.9, 5, 5.1, 5.2, 5.4, 5.8, 5.875, 5.95, 6.025, 6.125, 6.2, 6.275, 6.35, 6.45, 6.55, 6.65, 6.85, 7.25, 7.325, 7.4, 7.475, 7.575, 7.65, 7.725, 7.8, 7.9, 8, 8.1, 8.3, 8.7, 8.775, 8.85, 8.925, 9.025, 9.1, 9.175, 9.25, 9.35, 9.45, 9.55, 9.75, 10.15, 10.225, 10.3, 10.375, 10.475, 10.55, 10.625, 10.7, 10.8, 10.9, 11, 11.2, 11.6, 11.675, 11.75, 11.825, 11.925, 12, 12.075, 12.15, 12.25, 12.35, 12.45, 12.65, 13.05, 13.125, 13.2, 13.275, 13.375, 13.45, 13.525, 13.6, 13.7, 13.8, 13.9, 14.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
+}
+
+[sub_resource type="Animation" id="Animation_hqjia"]
+length = 13.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.325, 0.4, 0.475, 0.55, 0.65, 0.75, 0.85, 0.95, 1.35, 1.425, 1.5, 1.575, 1.675, 1.75, 1.825, 1.9, 2, 2.1, 2.2, 2.3, 2.7, 2.775, 2.85, 2.925, 3.025, 3.1, 3.175, 3.25, 3.35, 3.45, 3.55, 3.65, 4.05, 4.125, 4.2, 4.275, 4.375, 4.45, 4.525, 4.6, 4.7, 4.8, 4.9, 5, 5.4, 5.475, 5.55, 5.625, 5.725, 5.8, 5.875, 5.95, 6.05, 6.15, 6.25, 6.35, 6.75, 6.825, 6.9, 6.975, 7.075, 7.15, 7.225, 7.3, 7.4, 7.5, 7.6, 7.7, 8.1, 8.175, 8.25, 8.325, 8.425, 8.5, 8.575, 8.65, 8.75, 8.85, 8.95, 9.05, 9.45, 9.525, 9.6, 9.675, 9.775, 9.85, 9.925, 10, 10.1, 10.2, 10.3, 10.4, 10.8, 10.875, 10.95, 11.025, 11.125, 11.2, 11.275, 11.35, 11.45, 11.55, 11.65, 11.75, 12.15, 12.225, 12.3, 12.375, 12.475, 12.55, 12.625, 12.7, 12.8, 12.9, 13, 13.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67]
+}
+
+[sub_resource type="Animation" id="Animation_0j2ni"]
+resource_name = "idle_right"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4n5ed"]
 _data = {
-&"RESET": SubResource("Animation_4ntmi"),
+&"attack_down": SubResource("Animation_ps8ct"),
 &"attack_left": SubResource("Animation_s1rgi"),
-&"idle_down": SubResource("Animation_vlldt"),
-&"idle_left": SubResource("Animation_ddoul"),
-&"idle_right": SubResource("Animation_8g4oa"),
-&"idle_up": SubResource("Animation_6ysni"),
-&"walk_down": SubResource("Animation_gwnis"),
-&"walk_left": SubResource("Animation_l8h54"),
-&"walk_right": SubResource("Animation_tok1r"),
-&"walk_up": SubResource("Animation_btcbx")
+&"attack_right": SubResource("Animation_d7xyo"),
+&"attack_up": SubResource("Animation_hqjia"),
+&"charge_down": SubResource("Animation_croik"),
+&"charge_left": SubResource("Animation_u5tep"),
+&"charge_right": SubResource("Animation_s0mko"),
+&"charge_up": SubResource("Animation_78fhc"),
+&"down_combo1": SubResource("Animation_x70vp"),
+&"down_combo2": SubResource("Animation_wo5nf"),
+&"idle_down": SubResource("Animation_v0k0e"),
+&"idle_left": SubResource("Animation_j23h2"),
+&"idle_right": SubResource("Animation_0j2ni"),
+&"idle_up": SubResource("Animation_5wa8t"),
+&"idlew_down": SubResource("Animation_dm7nj"),
+&"idlew_right": SubResource("Animation_p7tob"),
+&"left_combo1": SubResource("Animation_evw08"),
+&"left_combo2": SubResource("Animation_roy6y"),
+&"right_combo1": SubResource("Animation_7uipr"),
+&"right_combo2": SubResource("Animation_yifbt"),
+&"up_combo1": SubResource("Animation_gv3fu"),
+&"up_combo2": SubResource("Animation_xu7fl"),
+&"walk_down": SubResource("Animation_8sa4y"),
+&"walk_left": SubResource("Animation_3mea3"),
+&"walk_right": SubResource("Animation_3nb2p"),
+&"walk_up": SubResource("Animation_7v5gs")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j23h2"]
-animation = &"attack_left"
+animation = &"left_combo1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0j2ni"]
-animation = &"attack_left"
+animation = &"right_combo1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v0k0e"]
-animation = &"attack_left"
+animation = &"up_combo1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5wa8t"]
-animation = &"attack_left"
+animation = &"down_combo1"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_p7tob"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_j23h2")
@@ -208,9 +466,9 @@ blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_0j2ni")
 blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_v0k0e")
-blend_point_2/pos = Vector2(0, 1)
+blend_point_2/pos = Vector2(0, -1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_5wa8t")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, 1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8g4oa"]
@@ -299,10 +557,34 @@ transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_
 script = ExtResource("1_q3lat")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_l8h54")
-hframes = 4
-vframes = 10
-frame = 1
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_vlldt")
+hframes = 9
+vframes = 8
+frame = 16
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://Player/Sprites/main-character_sword_animation_v11.aseprite",
+"source_uid": 6471439852411211655
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e62d893655c33922d31da235dc2690ee"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -310,7 +592,7 @@ shape = SubResource("CircleShape2D_4ntmi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_btcbx")
+&"": SubResource("AnimationLibrary_4n5ed")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -319,7 +601,7 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/blend_position = Vector2(-0.0820353, 0.59641254)
 parameters/Idle/blend_position = Vector2(-0.0010559559, 1.0089686)
-parameters/Walk/blend_position = Vector2(0.9952153, 0.04035878)
+parameters/Walk/blend_position = Vector2(-0.0005276799, 0.9820628)
 
 [node name="StatsHandler" type="Node" parent="."]
 script = ExtResource("3_tok1r")
@@ -343,4 +625,3 @@ script = ExtResource("7_s1rgi")
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("8_s1rgi")
-metadata/_custom_type_script = "uid://cs0cu4cdocf1f"

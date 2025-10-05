@@ -10,7 +10,7 @@ func Enter():
 	print_debug("")
 	print_debug("attacking!")
 	player.velocity = Vector2.ZERO
-	var anim_length = animation_player.get_animation("attack_left").length
+	var anim_length = animation_player.get_animation("left_combo1").length
 	await get_tree().create_timer(anim_length).timeout
 	AnimFinished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
 	emit_signal("AnimFinished")
