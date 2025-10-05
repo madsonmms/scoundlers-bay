@@ -9,13 +9,13 @@ var last_facing_direction : = Vector2(0, -1)
 
 func _physics_process(_delta: float) -> void:
 	
-	var attacking = player.attack_component.attacking
 	var idle = !player.velocity
 	if !idle:
 		last_facing_direction = player.velocity.normalized()
 	
-	if attacking:
-		animation_tree.set("parameters/Attack/blend_position", last_facing_direction)
 	
+	 # Apenas atualizar os parâmetros, o AnimationTree cuida das transições
 	animation_tree.set("parameters/Idle/blend_position", last_facing_direction)
 	animation_tree.set("parameters/Walk/blend_position", last_facing_direction)
+	animation_tree.set("parameters/Attack/blend_position", last_facing_direction)
+	animation_tree.set("parameters/Attack2/blend_position", last_facing_direction)
