@@ -4,8 +4,7 @@ extends CharacterBody2D
 @onready var stats : StatsHandler = $StatsHandler
 @onready var input_dir : Vector2
 @onready var animation_tree : AnimationTree = $AnimationTree
-
-var attacking : bool = false
+@onready var attack_component : AttackComponent = $AttackComponent
 
 func _physics_process(_delta: float) -> void:
 	
@@ -17,4 +16,4 @@ func _physics_process(_delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("z_button"):
-		attacking = true
+		attack_component.attacking = true
