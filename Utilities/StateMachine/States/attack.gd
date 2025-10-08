@@ -4,18 +4,14 @@ class_name AttackState
 @onready var animation_handler : AnimationHandler = $"../../AnimationHandler"
 @onready var player : Player = $"../.."
 
-signal AnimFinished
-
 func Enter():
 	player.velocity = Vector2.ZERO
-	
-	player.attack_component.start_attack()
 	
 	var anim_length = animation_handler.animation_player.get_animation("left_combo1").length
 	await get_tree().create_timer(anim_length).timeout
 	
-	if not player.attack_component.Combo_Finished.is_connected(_check_combo_status):
-		player.attack_component.Combo_Finished.connect(_check_combo_status)
+	#Conecta ao sinal para utilizá-lo quando o combo finalizar
+	player.attack_component.Combo_Finished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
 	
 	pass
 	
@@ -26,24 +22,9 @@ func Update(_delta):
 func Physics_Update(_delta):
 	player.velocity = Vector2.ZERO
 	pass
-
-func _check_combo_status() -> void:
-	
-	if player.attack_component.attacking == false:
-		AnimFinished.connect(_on_attack_finished, CONNECT_ONE_SHOT)
-		emit_signal("AnimFinished")
-	
-	if player.attack_component.current_combo_step < 2:
-		player.attack_component.try_next_combo()
-		print_debug(player.attack_component.current_combo_step)
 	
 func _on_attack_finished() -> void:
-	
 	if player.velocity != Vector2.ZERO:
 		emit_signal("Transitioned", self, "WalkState")
 	else:
 		emit_signal("Transitioned", self, "IdleState")
-
-func _on_combo_finished() -> void:
-	print_debug("combo finalizado")
-	pass

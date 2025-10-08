@@ -20,4 +20,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		if attack_component.attacking == true:
 			attack_component.try_next_combo()
 		else:
-			attack_component.attacking = true
+			attack_component.start_attack()
